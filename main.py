@@ -17,20 +17,20 @@ for i in range(len(urls)):
     f = open(fnames[i], 'wb')
     f.write(webpage)
     f.close()
+for i in range(5):
+        with open("https://github.com/rastalord/test_task/edit/main/" + fnames[i]) as fp:
+            soup = BeautifulSoup(fp, 'html.parser')
 
-with open("D:/Ivan/CPP_1/test/text1.html") as fp:
-    soup = BeautifulSoup(fp, 'html.parser')
-
-answ = []
-#num = re.findall(r'(?:\d+\.)?\d+,\d+', str(td))
-data = soup.find_all('td')
-for td in data:
-    num = re.findall(r'\d+,\d+,\d+', str(td))
-    answ.append(num)
-    num = re.findall(r'\d+\.+\d+', str(td))
-    answ.append(num)
-    num = re.findall(r'\d+-\d+', str(td))
-    answ.append(num)
-answ = list(filter(None, answ))
-print(answ)
+        answ = []
+        #num = re.findall(r'(?:\d+\.)?\d+,\d+', str(td))
+        data = soup.find_all('td')
+        for td in data:
+            num = re.findall(r'\d+,\d+,\d+', str(td))
+            answ.append(num)
+            num = re.findall(r'\d+\.+\d+', str(td))
+            answ.append(num)
+            num = re.findall(r'\d+-\d+', str(td))
+            answ.append(num)
+        answ = list(filter(None, answ))
+        print(answ)
 
